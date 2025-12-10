@@ -11,6 +11,6 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	ft_reverse_a(t_list **a, t_list **b)
+void	ft_reverse_a(t_data *data)
 {
 

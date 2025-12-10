@@ -18,11 +18,17 @@
 
 typedef struct s_list
 {
-	int	moves;
 	long		nb;
 	struct s_list	*next;
 	struct s_list	*former;
 }	t_list;
+
+typedef struct	s_data
+{
+	int	moves;
+	t_list	*a;
+	t_list	*b;
+}	t_data;
 
 int	ft_lstsize(t_list lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);

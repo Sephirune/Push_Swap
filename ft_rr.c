@@ -11,12 +11,9 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	ft_rr(t_list **a, t_list **b)
+void	ft_rr(t_data *data)
 {
-	t_list	*data;
-
-	data.moves = 0;
-	ft_rotate(a, b, 0);
-	ft_rotate(b, a, 0);
-	ft_print_ints("rr\n", &data.moves);
+	ft_rotate(data, 0);
+	ft_rotate(data, 0);
+	ft_print_ints("rr\n", &data->moves);
 }

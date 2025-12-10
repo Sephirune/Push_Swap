@@ -11,20 +11,21 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	ft_push_a(t_list **a, t_list **b, int check)
+void	ft_push_a(t_data *data, int check)
 {
 	t_list	*head;
-	t_list	*data;
 
-	data.moves = 0;
-	if (!*b)
+	if (!data->b)
 		return ;
-	head = *b;
-	*b = (*b)->next;
-	if (*b)
-		(*b)->previous = NULL;
-	head->next = *a;
+	head = data->b;
+	data->b = data->b->next;
+	if (data->b)
+		data->b->previous = NULL;
+	head->next = data->a;
 	head->previous = NULL;
+	if (data->a)
+		data->a->previous = head;
+	data->a = head;
 	if (check)
-		ft_print_ints("pa\n", &data.moves);
+		ft_print_ints("pa\n", &data->moves);
 }
