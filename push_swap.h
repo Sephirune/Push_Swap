@@ -14,9 +14,11 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+# include "../printf/ft_printf.h"
 
 typedef struct s_list
 {
+	int	moves;
 	long		nb;
 	struct s_list	*next;
 	struct s_list	*former;

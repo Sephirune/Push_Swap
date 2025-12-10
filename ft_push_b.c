@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_push_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarogarc <aarogarc@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/12 10:23:33 by aarogarc          #+#    #+#             */
-/*   Updated: 2025/11/12 10:38:42 by aarogarc         ###   ########.fr       */
+/*   Created: 2025/12/10 10:59:29 by aarogarc          #+#    #+#             */
+/*   Updated: 2025/12/10 11:01:18 by aarogarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_push_b(t_list **a, t_list **b, int check)
 {
-	if (!lst || !del)
+	t_list	*head;
+	t_list	*data;
+
+	data.moves = 0;
+	if (!*a)
 		return ;
-	del(lst->content);
-	free(lst);
+	head = *a;
+	*a = (*a)->next;
+	if (*a)
+		(*a)->previous = NULL;
+	head->next = *b;
+	head->previous = NULL;
+	if (check)
+		ft_print_ints("pb\n", &data.moves);
 }

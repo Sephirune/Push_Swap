@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarogarc <aarogarc@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 11:06:22 by aarogarc          #+#    #+#             */
-/*   Updated: 2025/11/10 11:10:21 by aarogarc         ###   ########.fr       */
+/*   Created: 2025/11/14 13:24:54 by aarogarc          #+#    #+#             */
+/*   Updated: 2025/11/14 13:26:54 by aarogarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isascii(int c)
+int	ft_putchar(char c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	else
-		return (0);
+	write(1, &c, 1);
+	return (1);
 }

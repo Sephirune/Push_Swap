@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putptrnull.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarogarc <aarogarc@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 16:38:49 by aarogarc          #+#    #+#             */
-/*   Updated: 2025/11/10 16:44:17 by aarogarc         ###   ########.fr       */
+/*   Created: 2025/11/17 09:41:59 by aarogarc          #+#    #+#             */
+/*   Updated: 2025/11/17 10:04:06 by aarogarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putptrnull(void *ptr)
 {
-	int	i;
+	int				len;
+	unsigned long	ptro;
 
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
-	{
-		write(fd, s + i, 1);
-		i++;
-	}
+	if (!ptr)
+		return (ft_putstr("(nil)"));
+	len = 0;
+	ptro = (unsigned long)ptr;
+	len += ft_putstr("0x");
+	len += ft_hexnbr(ptro, 0);
+	return (len);
 }

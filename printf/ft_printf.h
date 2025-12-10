@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarogarc <aarogarc@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 09:34:23 by aarogarc          #+#    #+#             */
-/*   Updated: 2025/11/11 09:35:29 by aarogarc         ###   ########.fr       */
+/*   Created: 2025/11/13 14:57:15 by aarogarc          #+#    #+#             */
+/*   Updated: 2025/11/13 14:58:45 by aarogarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+# include <unistd.h>
+# include <stdarg.h>
+
+int	ft_printf(const char *str, ...);
+int	ft_putchar(char c);
+int	ft_putstr(char *str);
+int	ft_putnbr(int i);
+int	ft_hexnbr(unsigned long hex, int capdecimal);
+int	ft_putptrnull(void *ptr);
+int	ft_putunbr(unsigned int n);
+
+#endif

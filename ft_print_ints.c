@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	ft_print_ints(char *str, int *count)
+int	ft_print_ints(char *str, int *count, int switch)
 {
 	int	i;
 

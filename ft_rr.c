@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_rr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarogarc <aarogarc@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 11:01:53 by aarogarc          #+#    #+#             */
-/*   Updated: 2025/11/10 11:02:46 by aarogarc         ###   ########.fr       */
+/*   Created: 2025/12/10 16:40:20 by aarogarc          #+#    #+#             */
+/*   Updated: 2025/12/10 16:42:11 by aarogarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_isdigit(int c)
+void	ft_rr(t_list **a, t_list **b)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	t_list	*data;
+
+	data.moves = 0;
+	ft_rotate(a, b, 0);
+	ft_rotate(b, a, 0);
+	ft_print_ints("rr\n", &data.moves);
 }

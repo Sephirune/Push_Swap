@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_reverse_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarogarc <aarogarc@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 11:03:23 by aarogarc          #+#    #+#             */
-/*   Updated: 2025/11/10 11:04:48 by aarogarc         ###   ########.fr       */
+/*   Created: 2025/12/10 19:10:07 by aarogarc          #+#    #+#             */
+/*   Updated: 2025/12/10 19:17:05 by aarogarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_isalnum(int c)
+void	ft_reverse_a(t_list **a, t_list **b)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
-}
+

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarogarc <aarogarc@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/12 09:43:07 by aarogarc          #+#    #+#             */
-/*   Updated: 2025/11/12 10:19:45 by aarogarc         ###   ########.fr       */
+/*   Created: 2025/11/17 13:43:41 by aarogarc          #+#    #+#             */
+/*   Updated: 2025/11/17 13:46:26 by aarogarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_putunbr(unsigned int n)
 {
-	t_list	*temp;
+	int	len;
 
-	if (!lst || !new)
-		return ;
-	if (*lst != NULL)
-	{
-		temp = ft_lstlast(*lst);
-		temp->next = new;
-	}
-	else
-		*lst = new;
+	len = 0;
+	if (n > 9)
+		len += ft_putunbr(n / 10);
+	len += ft_putchar((n % 10) + '0');
+	return (len);
 }
