@@ -31,29 +31,3 @@ void	ft_reverse_a(t_data *data, int check)
         ft_print_ints("rra\n", &data->moves);
 }
 
-void	ft_reverse_b(t_data *data, int check)
-{
-    t_list  *blast;
-    t_list  *last;
-
-    if (!data->b || !data->b-next)
-        return ;
-    last = data->b;
-    while (last->next)
-        last = last->next;
-    blast = last->previous;
-    blast->next = NULL;
-    last->next = data->b;
-    last->previous = NULL;
-    data->b->previous = last;
-    data->b = last;
-    if (check)
-        ft_print_ints("rra\n", &data->moves);
-}
-
-void    ft_rrr(t_data *data)
-{
-    ft_reverse_a(data->a, 0);
-    ft_reverse_b(data->b, 0)
-    ft_print_ints("rrr\n", &data->moves);
-}
