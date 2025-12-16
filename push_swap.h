@@ -18,6 +18,7 @@
 typedef struct s_list
 {
 	long			nb;
+	int				index;
 	struct s_list	*next;
 	struct s_list	*previous;
 }	t_list;
