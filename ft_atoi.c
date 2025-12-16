@@ -33,7 +33,7 @@ int	ft_atoi(const char *str)
 		number = (number * 10) + (str[i] - '0');
 		i++;
 	}
-	if (number * result == 2147483647 || (number * result == -2147483648))
+	if (number * sign == 2147483647 || (number * sign == -2147483648))
 		write (1, "Overflow", 8);
 	return (number * sign);
 }

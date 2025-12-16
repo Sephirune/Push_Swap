@@ -13,21 +13,37 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
 # include "../printf/ft_printf.h"
 
 typedef struct s_list
 {
-	int	moves;
-	long		nb;
+	long			nb;
 	struct s_list	*next;
-	struct s_list	*former;
+	struct s_list	*previous;
 }	t_list;
+
+typedef struct	s_data
+{
+	int		moves;
+	t_list	*a;
+	t_list	*b;
+}	t_data;
 
 int	ft_lstsize(t_list lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int	ft_atoi(const char *str);
 t_list	*ft_lstnew(void *content);
-void	ft_swap_a(t_list **a);
-void	ft_swap_b(t_list **b);
 int	ft_print_ints(char *str, int *count);
+void	ft_push_a(t_data *data, int check);
+void	ft_push_b(t_data *data, int check);
+void	ft_reverse_a(t_data *data, int check);
+void	ft_reverse_b(t_data *data, int check);
+void	ft_rotate_a(t_data *data, int check);
+void	ft_rotate_b(t_data *data, int check);
+void	ft_rr(t_data *data);
+void    ft_rrr(t_data *data);
+void	ft_swap_a(t_data *data, int check);
+void	ft_swap_b(t_data *data, int check);
+void	ft_swap_ab(t_data *data);
+
+#endif

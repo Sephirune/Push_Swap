@@ -11,24 +11,22 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	ft_swap_a(t_list **a, int check)
+void	ft_swap_a(t_data *data, int check)
 {
-	if (!a || !*a || !((*a)->next))
+	if (!data->a || !data->a->next)
 		return ;
 	t_list	*first;
 	t_list	*second;
 	t_list	*third;
-	t_list	*data;
 
-	data.moves = 0;
-	first = *a;
-	second = (*a)->next;
+	first = data->a;
+	second = data->a->next;
 	third = second->next;
-	*a = second;
+	data->a = second;
 	second->previous = NULL;
 	second->next = first;
 	first->previous = second;
 	first->next = third;
 	if (check)
-		ft_print_ints("sa\n", &data.moves, 1);
+		ft_print_ints("sa\n", &data->moves);
 }

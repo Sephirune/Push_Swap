@@ -11,12 +11,9 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	ft_swap_ab(t_list *a, t_list *b)
+void	ft_swap_ab(t_data *data)
 {
-	t_list	*data;
-	
-	data.moves = 0;
-	ft_swap_a(a, b, 0);
-	ft_swap_b(b, a, 0);
-	ft_print_ints("ss\n", &data.move);
+	ft_swap_a(data->a, 0);
+	ft_swap_b(data->b, 0);
+	ft_print_ints("ss\n", &data->moves);
 }

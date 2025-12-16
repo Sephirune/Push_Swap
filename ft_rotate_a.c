@@ -11,27 +11,24 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	ft_rotate_a(t_list **a, t_list **b, int check)
+void	ft_rotate_a(t_data *data, int check)
 {
-	t_list	*data;
 	t_list	*first;
 	t_list	*second;
 	t_list	*last;
 
-	if (!*a || !(*a)->next)
+	if (!data->a || !data->a->next)
 		return ;
-	data.moves = 0;
-	first = *a;
-	second = (*a)->next;
-	last = *a;
+	first = data->a;
+	second = data->a->next;
+	last = data->a;
 	while (last->next)
 		last = last->next;
-	*a = second;
+	data->a = second;
 	second->previous = NULL;
 	last->next = first;
 	first->previous = last;
 	first->next = NULL;
 	if (check)
-		ft_print_ints("ra\n", &data.moves);
+		ft_print_ints("ra\n", &data->moves);
 }
-

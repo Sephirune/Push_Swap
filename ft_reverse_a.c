@@ -11,6 +11,23 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	ft_reverse_a(t_list **a, t_list **b)
+void	ft_reverse_a(t_data *data, int check)
 {
+    t_list  *blast;
+    t_list  *last;
+
+    if (!data->a || !data->a->next)
+        return ;
+    last = data->a;
+    while (last->next)
+        last = last->next;
+    blast = last->previous;
+    blast->next = NULL;
+    last->next = data->a;
+    last->previous = NULL;
+    data->a->previous = last;
+    data->a = last;
+    if (check)
+        ft_print_ints("rra\n", &data->moves);
+}
 
