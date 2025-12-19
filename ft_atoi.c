@@ -5,35 +5,61 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarogarc <aarogarc@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 10:34:04 by aarogarc          #+#    #+#             */
-/*   Updated: 2025/11/10 10:38:31 by aarogarc         ###   ########.fr       */
+/*   Created: 2025/12/17 11:07:58 by aarogarc          #+#    #+#             */
+/*   Updated: 2025/12/17 11:08:10 by aarogarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
+void	is_space(const char *str, int *i)
+{
+	while (str[*i] == 32 || (str[*i] >= 9 && str[*i] <= 13))
+			(*i)++;
+}
+
+int	check_sign(const char *str, int *i)
+{
+	int	sign;
+
+	sign = 1;
+	if (str[*i] == '+' || str[*i] == '-')
+	{
+		if (str[*i] == '-')
+			sign *= -1;
+		(*i)++;
+	}
+	return (sign);
+}
+
+void	check_overflow(long number, int sign)
+{
+	if (number * sign > __INT_MAX__ || (number * sign < -2147483648))
+	{
+		ft_printf("Overflow");
+		exit(1);
+	}
+}
+
 int	ft_atoi(const char *str)
 {
-	int	number;
-	int	sign;
-	int	i;
+	long	number;
+	int	    sign;
+	int	    i;
 
 	i = 0;
 	number = 0;
-	sign = 1;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	is_space(str, &i);
+	sign = check_sign(str, &i);
+	if (str[i] < '0' || str[i] > '9')
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		ft_printf("Overflow");
+		exit(1);
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+        check_overflow(number, sign);
 		number = (number * 10) + (str[i] - '0');
 		i++;
 	}
-	if (number * sign == 2147483647 || (number * sign == -2147483648))
-		write (1, "Overflow", 8);
 	return (number * sign);
 }

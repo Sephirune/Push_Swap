@@ -13,7 +13,7 @@
 
 void	ft_rr(t_data *data)
 {
-	ft_rotate(data, 0);
-	ft_rotate(data, 0);
+	ft_rotate_a(data, 0);
+	ft_rotate_b(data, 0);
 	ft_print_ints("rr\n", &data->moves);
 }
