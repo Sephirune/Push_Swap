@@ -39,12 +39,12 @@ void	size_3(t_data *data)
 		ft_rotate_a(data, 1);
 	}
 	else if (a < b && b > c && a > c)
-	{
 		ft_reverse_a(data, 1);
-	}
 }
 
 void	size_5(t_data *data)
 {
+	ft_index(data->a);
+	is_sorted(data->a);
 	
 }
