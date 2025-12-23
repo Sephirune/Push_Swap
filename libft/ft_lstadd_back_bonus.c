@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_ints.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarogarc <aarogarc@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 17:47:35 by aarogarc          #+#    #+#             */
-/*   Updated: 2025/12/08 17:49:29 by aarogarc         ###   ########.fr       */
+/*   Created: 2025/11/12 09:43:07 by aarogarc          #+#    #+#             */
+/*   Updated: 2025/11/12 10:19:45 by aarogarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "libft.h"
 
-int	ft_print_ints(char *str, int *count, int switch)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
+	t_list	*temp;
 
-	i = 0;
-	while (str[i])
+	if (!lst || !new)
+		return ;
+	if (*lst != NULL)
 	{
-		write(1, &str[i], 1);
-		i++;
-		(*count)++;
+		temp = ft_lstlast(*lst);
+		temp->next = new;
 	}
-	return (count);
+	else
+		*lst = new;
 }

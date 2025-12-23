@@ -61,4 +61,43 @@ int	is_sorted(t_list *pack)
 	return (1);
 }
 
+int	check_duplicate(t_data *data, int vatoi)
+{
+	t_list	*current;
 
+	current = data->a;
+	while (current)
+	{
+		if (current->nb == vatoi)
+			return (1);
+		current = current->next;
+	}
+	return (0);
+}
+
+void	parse_args(t_data *data, int argc, char **argv)
+{
+	int		i;
+	int		j;
+	char	**split;
+	int		k;
+	t_list	*node;
+
+	i = 1;
+	while (i < argc)
+	{
+		split = ft_split(argv[i], ' ');
+		j = 0;
+		while (split[j])
+		{
+			k = ft_atoi(split[j]);
+			if (check_duplicate(data, k))
+				check_error();
+			node = ft_lstnew(k);
+			ft_lstadd_back(&data->a, node);
+			j++;
+		}
+		free_split(split);
+		i++;
+	}
+}
