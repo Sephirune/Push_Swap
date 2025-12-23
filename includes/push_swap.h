@@ -51,5 +51,9 @@ void	ft_swap_b(t_data *data, int check);
 void	ft_swap_ab(t_data *data);
 void    ft_index(t_data *data);
 int		is_sorted(t_list *pack);
+int		check_duplicate(t_data *data, int vatoi);
+void	parse_args(t_data *data, int argc, char **argv);
+void	free_split(char **split);
+void	check_error(void);
 
 #endif

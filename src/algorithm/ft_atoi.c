@@ -35,7 +35,7 @@ void	check_overflow(long number, int sign)
 {
 	if (number * sign > __INT_MAX__ || (number * sign < -2147483648))
 	{
-		ft_printf("Overflow");
+		ft_printf("Error\n");
 		exit(1);
 	}
 }
@@ -52,7 +52,7 @@ int	ft_atoi(const char *str)
 	sign = check_sign(str, &i);
 	if (str[i] < '0' || str[i] > '9')
 	{
-		ft_printf("Overflow");
+		ft_printf("Error\n");
 		exit(1);
 	}
 	while (str[i] >= '0' && str[i] <= '9')
