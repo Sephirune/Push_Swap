@@ -34,10 +34,7 @@ int	check_sign(const char *str, int *i)
 void	check_overflow(long number, int sign)
 {
 	if (number * sign > __INT_MAX__ || (number * sign < -2147483648))
-	{
-		ft_printf("Error\n");
-		exit(1);
-	}
+		check_error();
 }
 
 int	ft_atoi(const char *str)
@@ -57,9 +54,11 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-        check_overflow(number, sign);
 		number = (number * 10) + (str[i] - '0');
+		check_overflow(number, sign);
 		i++;
 	}
+	if (str[i] != '\0') // compruebo que no haya basura
+		check_error();
 	return (number * sign);
 }

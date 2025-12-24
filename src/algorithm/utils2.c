@@ -28,6 +28,60 @@ void	free_split(char **split)
 
 void	check_error(void)
 {
-	write (1, "Error\n", 7);
+	ft_printf("error\n");
 	exit (1);
+}
+
+int	find_min(t_list *pack)
+{
+	t_list	*current;
+	int		pos;
+	int		min_pos;
+	int		min_index;
+
+	current = pack;
+	pos = 0;
+	min_pos = 0;
+	min_index = current->index;
+	if (!pack)
+		check_error();
+	while (current)
+	{
+		if (current->index < min_index)
+		{
+			min_index = current->index;
+			min_pos = pos;
+		}
+		pos++;
+		current = current->next;
+	}
+	return (min_pos);
+}
+
+void	push_min(t_data *data)
+{
+	int	pos;
+	int	size;
+	int	aux;
+
+	pos = find_min(data->a);
+	size = ft_lstsize(data->a);
+	if (pos <= size / 2) // compruebo que sea desde la primera mitad o desde la segunda de la lista
+	{
+		while (pos > 0)
+		{
+			ft_rotate_a(data, 1);
+			pos--;
+		}
+	}
+	else
+	{
+		aux = size - pos;
+		while (aux > 0)
+		{
+			ft_reverse_a(data, 1);
+			aux--;
+		}
+	}
+	ft_push_b(data, 1);
 }

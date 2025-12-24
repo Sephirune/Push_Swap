@@ -87,12 +87,14 @@ void	parse_args(t_data *data, int argc, char **argv)
 	while (i < argc)
 	{
 		split = ft_split(argv[i], ' ');
+		if (!split || !split[0])
+			return (free_split(split), check_error());
 		j = 0;
 		while (split[j])
 		{
 			k = ft_atoi(split[j]);
 			if (check_duplicate(data, k))
-				check_error();
+				return (free_splt(split), check_error());
 			node = ft_lstnew(k);
 			ft_lstadd_back(&data->a, node);
 			j++;

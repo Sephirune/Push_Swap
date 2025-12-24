@@ -28,6 +28,8 @@ void	size_3(t_data *data)
 	c = data->a->next->next->nb;
 	if (a > b && b < c && a < c)
 		ft_swap_a(data, 1);
+	else if (a > b && b < c && a > c)
+		ft_rotate_a(data, 1);
 	else if (a > b && b > c)
 	{
 		ft_swap_a(data, 1);
@@ -44,7 +46,11 @@ void	size_3(t_data *data)
 
 void	size_5(t_data *data)
 {
-	ft_index(data->a);
-	is_sorted(data->a);
-	
+	ft_index(data);
+	push_min(data);;
+	push_min(data);
+	if (!is_sorted(data->a))
+		size_3(data);
+	ft_push_a(data, 1);
+	ft_push_a(data, 1);
 }
