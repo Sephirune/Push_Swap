@@ -18,6 +18,7 @@ SRCS			=	$(SRC_DIR)/operations/ft_push_a.c\
 					$(SRC_DIR)/algorithm/ft_atoi.c\
 					$(SRC_DIR)/algorithm/push_swap.c\
 					$(SRC_DIR)/algorithm/utils.c\
+					$(SRC_DIR)/algorithm/utils2.c
 OBJS			=	$(SRCS:.c=.o)
 
 CC			=	cc
