@@ -54,3 +54,48 @@ void	size_5(t_data *data)
 	ft_push_a(data, 1);
 	ft_push_a(data, 1);
 }
+
+void	radix_sort(t_data *data)
+{
+	int	i;
+	int	j;
+	int	size;
+	int	max_bits;
+
+	ft_index(data);
+	max_bits = get_bits(data);
+	i = 0;
+	while (i < max_bits)
+	{
+		size = ft_lstsize(data->a);
+		j = 0;
+		while (j < size)
+		{
+			if (((data->a->index >> i) && 1) == 0)
+				ft_push_b(data, 1);
+			else
+				ft_rotate_a(data, 1);
+			j++;
+		}
+		while (data->b)
+		ft_push_a(data, 1);
+		i++;
+	}
+}
+
+int	main(t_data *data)
+{
+	int	size;
+
+	if (is_sorted(data->a))
+		return ;
+	size = ft_lstsize(data->a);
+	if (size == 2)
+		size_2(data);
+	else if (size == 3)
+		size_3(data);
+	else if (size <= 5)
+		size_4_5(data);
+	else
+		radix_sort(data);
+}

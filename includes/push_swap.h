@@ -57,5 +57,6 @@ void	free_split(char **split);
 void	check_error(void);
 int		find_min(t_list *pack);
 void	push_min(t_data *data);
+int		get_bits(t_data *data);
 
 #endif

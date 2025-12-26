@@ -85,3 +85,23 @@ void	push_min(t_data *data)
 	}
 	ft_push_b(data, 1);
 }
+
+int	get_bits(t_data *data)
+{
+	int	max_index;
+	int	bits;
+	t_list	*current;
+
+	current = data->a;
+	max_index = 0;
+	bits = 0;
+	while (current) // quiero buscar el indice
+	{
+		if (current->index > max_index)
+			max_index = current->index;
+		current = current->next;
+	}
+	while ((max_index >> bits) != 0) // a ver cuántos bits ocupa el número para saber las pasadas que hará radix
+		bits++;
+	return (bits);
+}
