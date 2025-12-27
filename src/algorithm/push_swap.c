@@ -14,7 +14,7 @@
 void	size_2(t_data *data)
 {
     if ((data->a->nb) > (data->a->next->nb))
-        ft_swap_a(data->a, 1);
+        ft_swap_a(data, 1);
 }
 
 void	size_3(t_data *data)
@@ -71,7 +71,7 @@ void	radix_sort(t_data *data)
 		j = 0;
 		while (j < size)
 		{
-			if (((data->a->index >> i) && 1) == 0)
+			if (((data->a->index >> i) & 1) == 0) // >> desplaza bits y el & extrae el menos significativo
 				ft_push_b(data, 1);
 			else
 				ft_rotate_a(data, 1);
@@ -83,19 +83,28 @@ void	radix_sort(t_data *data)
 	}
 }
 
-int	main(t_data *data)
+int	main(int argc, char **argv)
 {
-	int	size;
-
-	if (is_sorted(data->a))
-		return ;
-	size = ft_lstsize(data->a);
-	if (size == 2)
-		size_2(data);
-	else if (size == 3)
-		size_3(data);
-	else if (size <= 5)
-		size_4_5(data);
-	else
-		radix_sort(data);
+	t_data	data;
+	int		size;
+	
+	data.a = NULL;
+	data.b = NULL;
+	data.moves = 0;
+	if (argc > 2)
+	{
+		parse_args(&data, argc, argv);
+		if (is_sorted(data.a))
+			return (0);
+		size = ft_lstsize(data.a);
+		if (size == 2)
+			size_2(&data);
+		else if (size == 3)
+			size_3(&data);
+		else if (size <= 5)
+			size_5(&data);
+		else
+			radix_sort(&data);
+	}
+	return (0);
 }

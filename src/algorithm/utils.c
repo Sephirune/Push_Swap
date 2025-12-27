@@ -78,27 +78,18 @@ int	check_duplicate(t_data *data, int vatoi)
 void	parse_args(t_data *data, int argc, char **argv)
 {
 	int		i;
-	int		j;
 	char	**split;
-	int		k;
-	t_list	*node;
 
 	i = 1;
 	while (i < argc)
 	{
 		split = ft_split(argv[i], ' ');
 		if (!split || !split[0])
-			return (free_split(split), check_error());
-		j = 0;
-		while (split[j])
 		{
-			k = ft_atoi(split[j]);
-			if (check_duplicate(data, k))
-				return (free_splt(split), check_error());
-			node = ft_lstnew(k);
-			ft_lstadd_back(&data->a, node);
-			j++;
+			free_split(split);
+			check_error();
 		}
+		parse_split(data, split);
 		free_split(split);
 		i++;
 	}
