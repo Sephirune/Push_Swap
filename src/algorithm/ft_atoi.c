@@ -37,6 +37,31 @@ void	check_overflow(long number, int sign)
 		check_error();
 }
 
+int	check_args(const char *str)
+{
+	int i;
+	int digit;
+	
+	i = 0;
+	digit = 0;
+	is_space(str, &i);
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (str[i] < '0' || str[i] > '9')
+		return (0);
+	while (str[i])
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			digit = 1;
+		else if (str[i] != ' ' && !(str[i] >= 9 && str[i] <= 13))
+			return (0);
+		else if (digit && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
+			return (0);
+		i++;
+	}
+	return (digit);
+}
+
 int	ft_atoi(const char *str)
 {
 	long	number;
@@ -45,11 +70,14 @@ int	ft_atoi(const char *str)
 
 	i = 0;
 	number = 0;
+	
+	if (!check_args(str))
+		check_error();
 	is_space(str, &i);
 	sign = check_sign(str, &i);
 	if (str[i] < '0' || str[i] > '9')
 	{
-		ft_printf("Error\n");
+		check_error();
 		exit(1);
 	}
 	while (str[i] >= '0' && str[i] <= '9')

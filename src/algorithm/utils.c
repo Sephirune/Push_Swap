@@ -87,7 +87,7 @@ void	parse_args(t_data *data, int argc, char **argv)
 		if (!split || !split[0])
 		{
 			free_split(split);
-			check_error();
+			check_error_free(data);
 		}
 		aux_split(data, split);
 		free_split(split);

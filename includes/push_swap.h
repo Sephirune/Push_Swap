@@ -34,6 +34,7 @@ typedef struct	s_data
 }	t_data;
 
 int		ft_atoi(const char *str);
+int		check_args(const char *str);
 int		ft_print_ints(char *str, int *count);
 void	ft_push_a(t_data *data, int check);
 void	ft_push_b(t_data *data, int check);
@@ -60,5 +61,12 @@ int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(long nb);
+void	free_list(t_list **lst);
+void	check_error_free(t_data *data);
+void	aux_main(t_data *data, int size);
+void	size_2(t_data *data);
+void	size_3(t_data *data);
+void	size_5(t_data *data);
+void	radix_sort(t_data *data);
 
 #endif

@@ -91,23 +91,18 @@ int	main(int argc, char **argv)
 	data.a = NULL;
 	data.b = NULL;
 	data.moves = 0;
-	if (argc > 2)
+	if (argc >= 2)
 	{
 		parse_args(&data, argc, argv);
 		if (!data.a)
 			return (0);
 		ft_index(&data);
 		if (is_sorted(data.a))
-			return (0);
+			return (free_list(&data.a), 0);
 		size = ft_lstsize(data.a);
-		if (size == 2)
-			size_2(&data);
-		else if (size == 3)
-			size_3(&data);
-		else if (size <= 5)
-			size_5(&data);
-		else
-			radix_sort(&data);
+		aux_main(&data, size);
+		free_list(&data.a);
+		free_list(&data.b);
 	}
 	return (0);
 }
