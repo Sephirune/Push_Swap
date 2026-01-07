@@ -15,11 +15,16 @@ SRCS			=	$(SRC_DIR)/operations/ft_push_a.c\
 					$(SRC_DIR)/operations/ft_swap_a.c\
 					$(SRC_DIR)/operations/ft_swap_b.c\
 					$(SRC_DIR)/operations/ft_swap_ab.c\
+					$(SRC_DIR)/operations/ft_lstsize.c\
+					$(SRC_DIR)/operations/ft_lstadd_back.c\
+					$(SRC_DIR)/operations/ft_lstlast.c\
+					$(SRC_DIR)/operations/ft_lstnew.c\
 					$(SRC_DIR)/algorithm/ft_atoi.c\
 					$(SRC_DIR)/algorithm/push_swap.c\
 					$(SRC_DIR)/algorithm/utils.c\
 					$(SRC_DIR)/algorithm/utils2.c\
 					$(SRC_DIR)/algorithm/utils3.c
+
 OBJS			=	$(SRCS:.c=.o)
 
 CC			=	cc
@@ -33,25 +38,22 @@ NAME			=	push_swap
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS) $(LIBFT) $(PRINTF)
-				$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
-
-$(LIBFT):
-				make -C $(LIBFT_DIR)
-
-$(PRINTF):
-				make -C $(PRINTF_DIR)
+$(NAME):	$(OBJS)
+	make -C $(LIBFT_DIR)
+	make -C $(PRINTF_DIR)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 
 clean:
-				$(RM) $(OBJS)
-				make -C $(LIBFT_DIR) clean
-				make -C $(PRINTF_DIR) clean
+	$(RM) $(OBJS)
+	make -C $(LIBFT_DIR) clean
+	make -C $(PRINTF_DIR) clean
 
-fclean:		clean
-			$(RM) $(NAME)
-			make -C $(LIBFT_DIR) fclean
-			make -C $(PRINTF_DIR) fclean
+fclean:	clean
+	$(RM) $(NAME)
+	make -C $(LIBFT_DIR) fclean
+	make -C $(PRINTF_DIR) fclean
 
-re:			fclean $(NAME)
+re:			fclean 
+			$(NAME) all
 
 .PHONY:			all clean fclean re

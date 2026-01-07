@@ -94,6 +94,9 @@ int	main(int argc, char **argv)
 	if (argc > 2)
 	{
 		parse_args(&data, argc, argv);
+		if (!data.a)
+			return (0);
+		ft_index(&data);
 		if (is_sorted(data.a))
 			return (0);
 		size = ft_lstsize(data.a);

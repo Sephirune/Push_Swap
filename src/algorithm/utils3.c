@@ -1,3 +1,5 @@
+#include "push_swap.h"
+
 void    aux_split(t_data *data, char **split)
 {
     int j;

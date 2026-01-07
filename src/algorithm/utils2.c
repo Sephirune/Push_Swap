@@ -28,7 +28,7 @@ void	free_split(char **split)
 
 void	check_error(void)
 {
-	ft_printf("error\n");
+	ft_printf("Error\n");
 	exit (1);
 }
 

@@ -13,7 +13,7 @@
 
 void	ft_swap_ab(t_data *data)
 {
-	ft_swap_a(data->a, 0);
-	ft_swap_b(data->b, 0);
+	ft_swap_a(data, 0);
+	ft_swap_b(data, 0);
 	ft_print_ints("ss\n", &data->moves);
 }

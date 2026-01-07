@@ -22,7 +22,7 @@ int	ft_print_ints(char *str, int *count)
 		i++;
 		(*count)++;
 	}
-	return (count);
+	return (*count);
 }
 
 void	ft_index(t_data *data)
@@ -89,7 +89,7 @@ void	parse_args(t_data *data, int argc, char **argv)
 			free_split(split);
 			check_error();
 		}
-		parse_split(data, split);
+		aux_split(data, split);
 		free_split(split);
 		i++;
 	}
