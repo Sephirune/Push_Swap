@@ -13,6 +13,8 @@
 
 void	size_2(t_data *data)
 {
+	if (!data->a || !data->a->next)
+		return ;
     if ((data->a->nb) > (data->a->next->nb))
         ft_swap_a(data, 1);
 }
@@ -23,6 +25,8 @@ void	size_3(t_data *data)
 	long	b;
 	long	c;
 
+	if (!data->a || !data->a->next || !data->a->next->next)
+		return ;
 	a = data->a->nb;
 	b = data->a->next->nb;
 	c = data->a->next->next->nb;
@@ -44,15 +48,36 @@ void	size_3(t_data *data)
 		ft_reverse_a(data, 1);
 }
 
+void print_stack(t_list *stack, char name)
+{
+    ft_printf("Stack %c: ", name);
+    while (stack)
+    {
+        ft_printf("%d ", stack->nb);
+        stack = stack->next;
+    }
+    ft_printf("\n");
+}
+
 void	size_5(t_data *data)
 {
+	print_stack(data->a, 'a');
+    print_stack(data->b, 'b');
 	ft_index(data);
 	push_min(data);
+	print_stack(data->a, 'a');
+    print_stack(data->b, 'b');
 	push_min(data);
+	print_stack(data->a, 'a');
+    print_stack(data->b, 'b');
 	if (!is_sorted(data->a))
 		size_3(data);
 	ft_push_a(data, 1);
+	print_stack(data->a, 'a');
+    print_stack(data->b, 'b');
 	ft_push_a(data, 1);
+	print_stack(data->a, 'a');
+    print_stack(data->b, 'b');
 }
 
 void	radix_sort(t_data *data)
@@ -96,7 +121,6 @@ int	main(int argc, char **argv)
 		parse_args(&data, argc, argv);
 		if (!data.a)
 			return (0);
-		ft_index(&data);
 		if (is_sorted(data.a))
 			return (free_list(&data.a), 0);
 		size = ft_lstsize(data.a);

@@ -11,11 +11,10 @@ void    aux_split(t_data *data, char **split)
     {
         value = ft_atoi(split[j]);
         if (check_duplicate(data, value))
-        {
-            free_split(split);
-            check_error();
-        }
+            check_error_free(data);
         node = ft_lstnew(value);
+		if (!node)
+			check_error_free(data);
         ft_lstadd_back(&data->a, node);
         j++;
     }

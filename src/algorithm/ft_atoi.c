@@ -71,8 +71,6 @@ int	ft_atoi(const char *str)
 	i = 0;
 	number = 0;
 	
-	if (!check_args(str))
-		check_error();
 	is_space(str, &i);
 	sign = check_sign(str, &i);
 	if (str[i] < '0' || str[i] > '9')

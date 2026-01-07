@@ -39,12 +39,12 @@ int	find_min(t_list *pack)
 	int		min_pos;
 	int		min_index;
 
+	if (!pack)
+		check_error();
 	current = pack;
 	pos = 0;
 	min_pos = 0;
 	min_index = current->index;
-	if (!pack)
-		check_error();
 	while (current)
 	{
 		if (current->index < min_index)

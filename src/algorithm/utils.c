@@ -54,7 +54,7 @@ int	is_sorted(t_list *pack)
 	current = pack;
 	while (current && current->next)
 	{
-		if (current->index > current->next->index)
+		if (current->nb > current->next->nb)
 			return (0);
 		current = current->next;
 	}
