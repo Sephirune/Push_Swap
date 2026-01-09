@@ -18,11 +18,10 @@ void	ft_reverse_a(t_data *data, int check)
 
 	if	(!data->a || !data->a->next)
 		return ;
-	last = data->a;
-	while (last->next)
-		last = last->next;
+	last = ft_lstlast(data->a);
 	blast = last->previous;
-	blast->next = NULL;
+	if (blast) // se protege el NULL
+		blast->next = NULL;
 	last->next = data->a;
 	last->previous = NULL;
 	data->a->previous = last;

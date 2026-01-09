@@ -45,13 +45,24 @@ void	check_error_free(t_data *data)
 	exit (1);
 }
 
+void	size_4(t_data *data)
+{
+	ft_index(data);
+	push_min(data);
+	if (!is_sorted(data->a))
+		size_3(data);
+	ft_push_a(data, 1);
+}
+
 void	aux_main(t_data *data, int size)
 {
 	if (size == 2)
 		size_2(data);
 	else if (size == 3)
 		size_3(data);
-	else if (size <= 5)
+	else if (size == 4)
+		size_4(data);
+	else if (size == 5)
 		size_5(data);
 	else
 		radix_sort(data);

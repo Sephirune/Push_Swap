@@ -21,9 +21,7 @@ void	ft_rotate_a(t_data *data, int check)
 		return ;
 	first = data->a;
 	second = data->a->next;
-	last = data->a;
-	while (last->next)
-		last = last->next;
+	last = ft_lstlast(data->a);
 	data->a = second;
 	second->previous = NULL;
 	last->next = first;

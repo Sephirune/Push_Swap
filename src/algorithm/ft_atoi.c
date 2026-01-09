@@ -71,13 +71,10 @@ int	ft_atoi(const char *str)
 	i = 0;
 	number = 0;
 	
+	if (!check_args(str))
+		check_error();
 	is_space(str, &i);
 	sign = check_sign(str, &i);
-	if (str[i] < '0' || str[i] > '9')
-	{
-		check_error();
-		exit(1);
-	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		number = (number * 10) + (str[i] - '0');

@@ -66,6 +66,7 @@ void	check_error_free(t_data *data);
 void	aux_main(t_data *data, int size);
 void	size_2(t_data *data);
 void	size_3(t_data *data);
+void	size_4(t_data *data);
 void	size_5(t_data *data);
 void	radix_sort(t_data *data);
 

@@ -48,37 +48,16 @@ void	size_3(t_data *data)
 		ft_reverse_a(data, 1);
 }
 
-void print_stack(t_list *stack, char name)
-{
-    ft_printf("Stack %c: ", name);
-    while (stack)
-    {
-        ft_printf("%d ", stack->nb);
-        stack = stack->next;
-    }
-    ft_printf("\n");
-}
-
 void	size_5(t_data *data)
 {
-/* 	print_stack(data->a, 'a');
-    print_stack(data->b, 'b'); */
 	ft_index(data);
 	push_min(data);
 	ft_index(data);
-/* 	print_stack(data->a, 'a');
-    print_stack(data->b, 'b'); */
 	push_min(data);
-/* 	print_stack(data->a, 'a');
-    print_stack(data->b, 'b'); */
 	if (!is_sorted(data->a))
 		size_3(data);
 	ft_push_a(data, 1);
-/* 	print_stack(data->a, 'a');
-    print_stack(data->b, 'b'); */
 	ft_push_a(data, 1);
-/* 	print_stack(data->a, 'a');
-    print_stack(data->b, 'b'); */
 }
 
 void	radix_sort(t_data *data)

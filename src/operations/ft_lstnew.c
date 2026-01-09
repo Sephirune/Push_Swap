@@ -10,5 +10,6 @@ t_list	*ft_lstnew(long nb)
 	new_node->nb = nb;
 	new_node->index = 0;
 	new_node->next = NULL;
+	new_node->previous = NULL;
 	return (new_node);
 }
